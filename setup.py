@@ -9,6 +9,7 @@ setup(
     description=
     'Python interface to the OpenBSD functions crypt_checkpass and crypt_newhash',
     url='https://github.com/bsd-ac/obsd_crypt',
+    headers=['obsd_crypt.h'],
     ext_modules=[
         Extension('_obsd_crypt', ['obsd_crypt_wrap.c', 'obsd_crypt.c'])
     ],
