@@ -15,5 +15,6 @@ setup(
     ],
     classifiers=[
         'Programming Language :: Python :: 3',
-        'License :: OSI Approved :: ISC License', 'Operating System :: OpenBSD'
+        'License :: OSI Approved :: ISC License (ISCL)',
+        'Operating System :: POSIX :: BSD :: OpenBSD'
     ])
