@@ -23,7 +23,7 @@ True
 string crypt_newhash(string password, int rounds = -1)
 ```
 
-- If rounds is not supplied or is set to **-1**, it automatically detects the appropriate number of rounds to use.
+- If rounds is not supplied or is set to a negative integer, it automatically detects the appropriate number of rounds to use.
 - Returns `None` on failure.
 
 ### `crypt_checkpass`
