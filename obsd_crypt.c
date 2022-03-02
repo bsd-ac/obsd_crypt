@@ -22,7 +22,7 @@ char *obsd_newhash(const char *password, int rounds) {
 
 	if(rounds > 31)
 		rounds = 31;
-	if(rounds < 4 && rounds > 0)
+	if(rounds < 4 && rounds >= 0)
 		rounds = 4;
 
 	if(rounds < 0)
