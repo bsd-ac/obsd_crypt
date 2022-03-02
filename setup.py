@@ -1,5 +1,9 @@
+from pathlib import Path
 from setuptools import setup
 from setuptools.extension import Extension
+
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='obsd_crypt',
@@ -8,6 +12,8 @@ setup(
     author_email='aisha@bsd.ac',
     description=
     'Python interface to the OpenBSD functions crypt_checkpass and crypt_newhash',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     url='https://github.com/bsd-ac/obsd_crypt',
     headers=['obsd_crypt.h'],
     ext_modules=[

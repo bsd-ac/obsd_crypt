@@ -62,7 +62,7 @@ class _SwigNonDynamicMeta(type):
 
 
 
-def crypt_checkpass(password, hash):
+def crypt_checkpass(password: str, hash: str) -> bool:
     r"""
     Check a password against a given hash.
 
@@ -85,7 +85,7 @@ def crypt_checkpass(password, hash):
     """
     return _obsd_crypt.crypt_checkpass(password, hash)
 
-def crypt_newhash(password, rounds=-1):
+def crypt_newhash(password: str, rounds: int = -1) -> str:
     r"""
     Return a new hash for a password.
 

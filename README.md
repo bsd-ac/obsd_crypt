@@ -17,19 +17,16 @@ $2b$10$RoAK6.GPdcXZId.cmFhmG.5YbXmANB/FyvzIbxj8uCKQWqRubiwee
 True
 ```
 
-### `crypt_newhash`
+## Functions
 
-```
-string crypt_newhash(string password, int rounds = -1)
-```
+### crypt_checkpass(password: str, hash: str) -> bool
 
-- If rounds is not supplied or is set to a negative integer, it automatically detects the appropriate number of rounds to use.
-- Returns `None` on failure.
+Check a password against a given hash.
 
-### `crypt_checkpass`
+If both the hash and the password are the empty string, authentication is a success. Otherwise, the password is hashed and compared to the provided hash. If the hash is empty, authentication will always fail, but a default amount of work is performed to simulate the hashing operation. A successful match returns True and a failure returns False.
 
-```
-bool crypt_checkpass(string password, string pass_hash)
-```
+### crypt_newhash(password: str, rounds: int = -1) -> str
+ 
+Return a new hash for a password.
 
-- Returns `True` if `pass_hash` is a valid hash of `password`, or it returns `False`.
+The provided password is randomly salted and hashed and returned as a string using the bcrypt algorith. The number of rounds  can be any integer between 4 and 31, inclusive. If the number of rounds is not given or is negative, an appropriate number of rounds is automatically selected based on system performance.
