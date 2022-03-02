@@ -19,13 +19,13 @@ True
 
 ## Functions
 
-### crypt_checkpass(password: str, hash: str) -> bool
+### `crypt_checkpass(password: str, hash: str) -> bool`
 
 Check a password against a given hash.
 
 If both the hash and the password are the empty string, authentication is a success. Otherwise, the password is hashed and compared to the provided hash. If the hash is empty, authentication will always fail, but a default amount of work is performed to simulate the hashing operation. A successful match returns True and a failure returns False.
 
-### crypt_newhash(password: str, rounds: int = -1) -> str
+### `crypt_newhash(password: str, rounds: int = -1) -> str`
  
 Return a new hash for a password.
 
