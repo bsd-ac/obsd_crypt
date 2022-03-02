@@ -63,9 +63,46 @@ class _SwigNonDynamicMeta(type):
 
 
 def crypt_checkpass(password, hash):
+    r"""
+    Check a password against a given hash.
+
+    If both the hash and the password are the empty string,
+    authentication is a success. Otherwise, the password is
+    hashed and compared to the provided hash. If the hash is
+    empty, authentication will always fail, but a default
+    amount of work is performed to simulate the hashing operation.
+    A successful match returns True and a failure returns False.
+
+    :type password: string
+    :param password: password to check.
+    :type hash: string
+    :param hash: hash to check against.
+
+    :rtype: boolean
+    :return: True If the hash validates the password.
+    :rtype: boolean
+    :return: False If the hash does not validate the password.
+    """
     return _obsd_crypt.crypt_checkpass(password, hash)
 
 def crypt_newhash(password, rounds=-1):
+    r"""
+    Return a new hash for a password.
+
+    The provided password is randomly salted and hashed and returned
+    as a string using the bcrypt algorith. The number of rounds
+    can be any integer between 4 and 31, inclusive. If the number
+    of rounds is not given or is negative, an appropriate number
+    of rounds is automatically selected based on system performance.
+
+    :type password: string
+    :param password: password to hash.
+    :type rounds: int, optional
+    :param rounds: number of rounds to pass to bcrypt.
+
+    :rtype: string
+    :return: A new hash for the password.
+    """
     return _obsd_crypt.crypt_newhash(password, rounds)
 
 

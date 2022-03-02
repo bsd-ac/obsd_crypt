@@ -13,6 +13,7 @@ setup(
     ext_modules=[
         Extension('_obsd_crypt', ['obsd_crypt_wrap.c', 'obsd_crypt.c'])
     ],
+    py_modules=['obsd_crypt'],
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: ISC License (ISCL)',

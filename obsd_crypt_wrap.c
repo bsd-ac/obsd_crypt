@@ -3093,8 +3093,43 @@ fail:
 
 static PyMethodDef SwigMethods[] = {
 	 { "SWIG_PyInstanceMethod_New", SWIG_PyInstanceMethod_New, METH_O, NULL},
-	 { "crypt_checkpass", _wrap_crypt_checkpass, METH_VARARGS, NULL},
-	 { "crypt_newhash", _wrap_crypt_newhash, METH_VARARGS, NULL},
+	 { "crypt_checkpass", _wrap_crypt_checkpass, METH_VARARGS, "\n"
+		"Check a password against a given hash.\n"
+		"\n"
+		"If both the hash and the password are the empty string,\n"
+		"authentication is a success. Otherwise, the password is\n"
+		"hashed and compared to the provided hash. If the hash is\n"
+		"empty, authentication will always fail, but a default\n"
+		"amount of work is performed to simulate the hashing operation.\n"
+		"A successful match returns True and a failure returns False.\n"
+		"\n"
+		":type password: string\n"
+		":param password: password to check.\n"
+		":type hash: string\n"
+		":param hash: hash to check against.\n"
+		"\n"
+		":rtype: boolean\n"
+		":return: True If the hash validates the password.\n"
+		":rtype: boolean\n"
+		":return: False If the hash does not validate the password.\n"
+		""},
+	 { "crypt_newhash", _wrap_crypt_newhash, METH_VARARGS, "\n"
+		"Return a new hash for a password.\n"
+		"\n"
+		"The provided password is randomly salted and hashed and returned\n"
+		"as a string using the bcrypt algorith. The number of rounds\n"
+		"can be any integer between 4 and 31, inclusive. If the number\n"
+		"of rounds is not given or is negative, an appropriate number\n"
+		"of rounds is automatically selected based on system performance.\n"
+		"\n"
+		":type password: string\n"
+		":param password: password to hash.\n"
+		":type rounds: int, optional\n"
+		":param rounds: number of rounds to pass to bcrypt.\n"
+		"\n"
+		":rtype: string\n"
+		":return: A new hash for the password.\n"
+		""},
 	 { NULL, NULL, 0, NULL }
 };
 

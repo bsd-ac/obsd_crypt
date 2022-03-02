@@ -20,8 +20,10 @@ char *obsd_newhash(const char *password, int rounds) {
 		return NULL;
 	}
 
-	if(rounds > 999)
-		rounds = 999;
+	if(rounds > 31)
+		rounds = 31;
+	if(rounds < 4 && rounds > 0)
+		rounds = 4;
 
 	if(rounds < 0)
 		snprintf(pref + 7, 5, "%s", "a");
